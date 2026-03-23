@@ -14,6 +14,7 @@ export default function Home() {
             alt="Property"
             fill
             priority
+            quality={95}
             className="object-cover animate-pan"
           />
           <div className="absolute inset-0 bg-background/30" />
