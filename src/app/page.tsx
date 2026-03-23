@@ -69,6 +69,10 @@ export default function Home() {
                 Get a customized PDF report direct to your inbox in 5 minutes.
               </p>
 
+              <p className="font-body text-[11px] uppercase tracking-[0.15em] text-[#a0aabf] mb-3">
+                15 questions. 3 min. Operational clarity.
+              </p>
+
               <Link
                 href="/quiz"
                 className="group inline-flex items-center justify-center h-[56px] px-8 bg-primary text-black font-body font-bold text-[12px] uppercase tracking-[0.12em] rounded-[var(--radius-md)] transition-all duration-300 hover:brightness-110 hover:-translate-y-[2px] shadow-[0_4px_16px_rgba(212,175,55,0.25)] active:scale-[0.98] gap-2 w-full sm:w-auto"
