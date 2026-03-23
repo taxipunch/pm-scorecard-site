@@ -28,8 +28,9 @@ export default function Home() {
                 src="/images/taxipunch-logo.png"
                 alt="TaxiPunch"
                 width={130}
-                height={48}
-                className="object-contain mb-6"
+                height={40}
+                className="object-contain object-left mb-3 -ml-1"
+                style={{ maxWidth: 130 }}
               />
 
               <span className="font-body text-[11px] font-medium uppercase tracking-[0.2em] text-primary mb-6">
