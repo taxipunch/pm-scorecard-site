@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Automation Readiness Scorecard | TaxiPunch",
     description: "Find out how automated your operation really is — and what your competitors are doing that you're not. Free. 3 minutes. Immediate results.",
-    url: "https://pm-scorecard-site.vercel.app",
+    url: "https://taxipunch.com",
     siteName: "TaxiPunch",
     images: [
       {
