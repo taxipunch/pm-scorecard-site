@@ -273,6 +273,15 @@ function Dashboard({ score }: { score: number }) {
             >
               Book a Strategy Call <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
+            <p className="font-body text-[12px] text-muted text-center">
+              Not ready to book?{" "}
+              <a
+                href="mailto:joe@taxipunch.com"
+                className="text-primary hover:underline transition-colors"
+              >
+                Send us an email instead.
+              </a>
+            </p>
           </div>
         </div>
 
