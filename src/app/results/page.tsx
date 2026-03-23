@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Lock, ArrowRight } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 // ── Score → tier data ────────────────────────────────────────────
 interface Tier {
@@ -55,14 +56,18 @@ const CIRC = 283;
 
 // ── Component ────────────────────────────────────────────────────
 export default function Results() {
-  const [score, setScore]           = useState<number | null>(null);
+  const [score, setScore]                 = useState<number | null>(null);
+  const [answers, setAnswers]             = useState<Record<string, unknown>>({});
   const [showDashboard, setShowDashboard] = useState(false);
-  const [email, setEmail]           = useState("");
-  const [note, setNote]             = useState("");
+  const [email, setEmail]                 = useState("");
+  const [note, setNote]                   = useState("");
+  const [submitting, setSubmitting]       = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("scorecard_score");
-    setScore(saved !== null ? Number(saved) : 42); // fallback for direct nav
+    const savedScore   = localStorage.getItem("scorecard_score");
+    const savedAnswers = localStorage.getItem("scorecard_answers");
+    setScore(savedScore !== null ? Number(savedScore) : 42);
+    if (savedAnswers) setAnswers(JSON.parse(savedAnswers));
   }, []);
 
   if (showDashboard && score !== null) {
@@ -94,7 +99,24 @@ export default function Results() {
         </p>
 
         <form
-          onSubmit={(e) => { e.preventDefault(); setShowDashboard(true); }}
+          onSubmit={async (e) => {
+            e.preventDefault();
+            setSubmitting(true);
+            const tier = score !== null ? getTier(score).label : "";
+            await supabase.from("submissions").insert({
+              email,
+              score: score ?? 0,
+              tier,
+              q11_vertical:    answers.q11 ?? null,
+              q12_goals:       answers.q12 ?? null,
+              q13_obstacles:   answers.q13 ?? null,
+              q14_solution_fit: answers.q14 ?? null,
+              q15_note:        note || null,
+            });
+            // Show dashboard regardless of insert success
+            setSubmitting(false);
+            setShowDashboard(true);
+          }}
           className="space-y-4"
         >
           <input
@@ -122,9 +144,10 @@ export default function Results() {
 
           <button
             type="submit"
-            className="group w-full h-[60px] bg-primary text-black font-body font-bold text-[12px] uppercase tracking-[0.12em] rounded-[var(--radius-md)] hover:brightness-110 transition-all shadow-[0_4px_16px_rgba(212,175,55,0.25)] flex items-center justify-center gap-2"
+            disabled={submitting}
+            className="group w-full h-[60px] bg-primary text-black font-body font-bold text-[12px] uppercase tracking-[0.12em] rounded-[var(--radius-md)] hover:brightness-110 transition-all shadow-[0_4px_16px_rgba(212,175,55,0.25)] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-wait"
           >
-            Reveal My Score <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            {submitting ? "Loading..." : <>Reveal My Score <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" /></>}
           </button>
         </form>
 
