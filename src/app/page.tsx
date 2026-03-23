@@ -60,20 +60,13 @@ export default function Home() {
                 You can only be in one place at a time.<br />Until now.
               </h2>
 
-              <p className="font-body text-sm text-[#a0aabf] mb-1 leading-relaxed">
-                Automation is doing for this generation what electricity did in the 20th century.
-              </p>
-              <p className="font-body text-sm text-[#a0aabf] mb-8 leading-relaxed">
-                And your competitors are already using it.
-              </p>
-
               <div className="w-full border-t border-glass-border mb-8" />
 
               <p className="font-body text-[13px] font-medium text-white mb-1 uppercase tracking-wide">
-                10 questions. 3 minutes. Operational clarity.
+                Take the Free Automation Assessment
               </p>
               <p className="font-body text-sm text-[#a0aabf] mb-8 leading-relaxed">
-                See how much ground your operation covers — when you&apos;re not there.
+                Get a customized PDF report direct to your inbox in 5 minutes.
               </p>
 
               <Link
@@ -129,6 +122,16 @@ export default function Home() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* ── Quote ── */}
+      <section className="w-full bg-background border-t border-glass-border py-20 px-6 lg:px-12">
+        <div className="container mx-auto max-w-3xl text-center">
+          <p className="font-heading text-[22px] md:text-[28px] leading-[1.3] text-white uppercase mb-6">
+            &ldquo;Automation is doing for this generation what electricity did in the 20th century. And your competitors are already using it.&rdquo;
+          </p>
+          <span className="font-body text-[11px] uppercase tracking-[0.2em] text-primary">— TaxiPunch</span>
         </div>
       </section>
 
