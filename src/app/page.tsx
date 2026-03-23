@@ -187,6 +187,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Footer ── */}
+      <footer className="w-full bg-background border-t border-glass-border px-6 lg:px-12 py-8">
+        <div className="container mx-auto max-w-5xl">
+          <Image
+            src="/images/taxipunch-logo.png"
+            alt="TaxiPunch"
+            width={110}
+            height={36}
+            className="object-contain"
+          />
+        </div>
+      </footer>
+
     </main>
   );
 }
