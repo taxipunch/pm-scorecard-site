@@ -20,19 +20,20 @@ export default function Home() {
           <div className="absolute inset-0 bg-background/30" />
         </div>
 
+        {/* Logo — floating on image, top-right */}
+        <div className="absolute top-6 right-8 z-10">
+          <Image
+            src="/images/taxipunch-logo.png"
+            alt="TaxiPunch"
+            width={120}
+            height={40}
+            className="object-contain"
+          />
+        </div>
+
         <div className="relative z-10 w-full container mx-auto px-6 lg:px-12 flex items-center justify-start">
           <div className="w-full max-w-[580px] glass-card rounded-[var(--radius-lg)] p-8 md:p-12">
             <div className="flex flex-col items-start text-left animate-fade-in">
-
-              <div className="w-full flex justify-end mb-6">
-                <Image
-                  src="/images/taxipunch-logo.png"
-                  alt="TaxiPunch"
-                  width={110}
-                  height={36}
-                  className="object-contain object-right"
-                />
-              </div>
 
               <span className="font-body text-[11px] font-medium uppercase tracking-[0.2em] text-primary mb-6">
                 Automation Readiness Scorecard
