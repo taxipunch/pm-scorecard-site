@@ -24,6 +24,14 @@ export default function Home() {
           <div className="w-full max-w-[580px] glass-card rounded-[var(--radius-lg)] p-8 md:p-12">
             <div className="flex flex-col items-start text-left animate-fade-in">
 
+              <Image
+                src="/images/taxipunch-logo.png"
+                alt="TaxiPunch"
+                width={130}
+                height={48}
+                className="object-contain mb-6"
+              />
+
               <span className="font-body text-[11px] font-medium uppercase tracking-[0.2em] text-primary mb-6">
                 Automation Readiness Scorecard
               </span>
