@@ -14,8 +14,8 @@ const body = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Scorecard Website",
-  description: "Assessment landing page and quiz funnel.",
+  title: "Automation Readiness Scorecard | TaxiPunch",
+  description: "10 questions. 3 minutes. See how much ground your operation covers — when you're not there.",
 };
 
 export default function RootLayout({

@@ -32,3 +32,18 @@ body {
   border-right: 1px solid transparent;
   box-shadow: var(--shadow-glass);
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pan {
+  0%   { transform: scale(1.05) translateX(0); }
+  50%  { transform: scale(1.05) translateX(-2%); }
+  100% { transform: scale(1.05) translateX(0); }
+}
+
+.animate-fade-in  { animation: fadeIn 0.4s ease-out both; }
+.animate-slide-in { animation: fadeIn 0.35s ease-out both; }
+.animate-pan      { animation: pan 30s ease-in-out infinite; }
